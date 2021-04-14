@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="welcome">
+        {% if user.is_authenticated %}
+            <p>Hello, <a href="{% url 'users:profile' user.username %}" id="User_link">{{ user.username }}</a>!</p>
+        {% else %}
+            <p>Hello! Please <a href="{% url 'login' %}">Login</a> or <a href="{% url 'users:signup' %}">Register</a>
+        {% endif %}
+
+    <form action="{% url 'recipe:new' %}">
+        {% csrf_token %}
+        <input type='submit' id="new_recipe" value="New Recipe">
+    </form>
+    </div>
+
+
+    <div class="itvapp">
+    {% for recipe in object_list %}
+        <hr>
+        <div class="recipe-entry">
+            <h4><a href="{% url 'users:profile' recipe.author.username %}">{{ recipe.author.username }}<a/> - {{ recipe.created }}</h4>
+            <p>{{ recipe.body|linebreaksbr }}</p>
+        </div>
+        <div class="recipe-buttons">
+            {% if request.user == recipe.author %}
+                <form action="{% url 'ivtapp:edit' recipe.pk %}">
+                    {% csrf_token %}
+                    <input type='submit' value="Edit Recipe">
+                </form>
+                <form action="{% url 'ivtapp:delete' recipe.pk %}">
+                    {% csrf_token %}
+                    <input type='submit' value="Delete Recipe">
+                </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock content %}

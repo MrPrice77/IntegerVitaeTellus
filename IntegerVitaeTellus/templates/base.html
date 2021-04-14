@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Integer Vitae Tellus</title>
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet">
+    <link href="{% static 'integervitaetellus/style.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <header class="sidenav">
+      <div class="food">
+          <a href="{% url 'ivtapp:home' %}"><img src="{% static 'integervitaetellus/images/food.jpg' %}"></a><br/>
+      </div>
+      {% if user.is_authenticated %}
+        <div>
+          <a href="{% url 'ivtapp:home' %}"><img src="{% static 'integervitaetellus/images/home.png' %}"></a>
+          <a href="{% url 'users:profile' user.username %}"><img src="{% static 'integervitaetellus/images/profile.png' %}"></a>
+          <a href="{% url 'logout' %}"><img src="{% static 'integervitaetellus/images/logout.png' %}"></a>
+      {% else %}
+          <a href="{% url 'ivtapp:home' %}"><img src="{% static 'integervitaetellus/images/home.png' %}"></a>
+          <a href="{% url 'login' %}"><img src="{% static 'integervitaetellus/images/login.png' %}"></a>
+          <a href="{% url 'users:signup' %}"><img src="{% static 'integervitaetellus/images/register.png' %}"></a>
+        </div>
+      {% endif %}
+    </header>
+    <div class="container">
+      {% block content %}
+      {% endblock content %}
+    </div>
+  </body>
+</html>
