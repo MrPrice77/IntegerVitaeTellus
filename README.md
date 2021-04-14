@@ -15,16 +15,11 @@ cookbooks allowing users to add their own recipes.
 * Join Group
 
 ### User Stories
-"As a **user**, I want to see a **daily** recipe suggestion, so for those times when **I cannot decide on what to cook** I have a suggestion."
-
-"As a **user**, I want to be able to **search** for a specific recipe, so **I can cook that meal**."
-
+"As a **user**, I want to see a **daily** recipe suggestion, so for those times when **I cannot decide on what to cook** I have a suggestion."  return
+"As a **user**, I want to be able to **search** for a specific recipe, so **I can cook that meal**."  return
 "As a **user**, I want to be able to **share my own recipes**, so **others can enjoy them** as much as I do."
-
 "As a **user**, I want to **share my thoughts** on recipes, so **others can see how I added my personal touch or what I thought of the meal**."
-
 "As a **user**, I want to **share images of my meal**, so **others can see how my meal turned out** following the recipe."
-
 "As a **user**, I want to **create a group recipe book**, so my **family can easily share recipes** among each other."
 
 
