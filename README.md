@@ -1,4 +1,4 @@
-# Integer vitae tellus
+# Integer Vitae Tellus
 
 ## Project Overview
 There are many cookbooks online that allow people to search up a bunch of recipes. Most of those recipes are provided and the user
