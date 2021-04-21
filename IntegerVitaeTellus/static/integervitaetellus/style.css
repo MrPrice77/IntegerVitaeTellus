@@ -26,6 +26,7 @@ body, h1, h2, h3, h4, h5, h6 {
     box-sizing: inherit;
     display: block;
     width: auto;
+    opacity: 80%;
 }
 
 a:hover {
@@ -91,21 +92,4 @@ a:hover {
     font-size: 60px;
     font-weight: bold;
     text-shadow: 4px 4px black;
-}
-
-#home {
-    margin-top: 104px;
-}
-
-.profile {
-    margin-top: 104px;
-    background-color: #000!important;
-    color: #fff!important;
-    font-size: 20px!important;
-    padding: 8px 16px;
-}
-
-.new {
-    padding: 20px;
-    margin: 20px;
 }

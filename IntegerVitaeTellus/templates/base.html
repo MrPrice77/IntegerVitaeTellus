@@ -15,8 +15,8 @@
         <div>
           <a href="{% url 'recipes:home' %}" class="nav-button">HOME</a>
           <a href="{% url 'recipes:list' %}" class="nav-button">RECIPES</a>
-          <a href="#about" class="nav-button">ABOUT</a>
-          <a href="#contact" class="nav-button">CONTACT</a><br>
+          <a href="{% url 'recipes:home' %}#about" class="nav-button">ABOUT</a>
+          <a href="{% url 'recipes:home' %}#contact" class="nav-button">CONTACT</a><br>
         </div>
         <div class="loginBar">
           {% if user.is_authenticated %}

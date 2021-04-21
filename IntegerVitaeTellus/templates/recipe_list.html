@@ -6,8 +6,8 @@
 {% for recipe in object_list %}
     <hr>
     <div class="recipe-entry">
-        <h4><a href="{% url 'users:profile' recipe.author.username %}"> {{ recipe.author.username }}</a></h4>
-        <p>{{ recipe.title|linebreaksbr }}
-    /div>
+        <h4><a href="{% url 'recipes:detail' recipe.id %}"> {{ recipe.title }}</a></h4>
+        <p>{{ recipe.author.username|linebreaksbr }}
+    </div>
 {% endfor %}
 {% endblock content %}

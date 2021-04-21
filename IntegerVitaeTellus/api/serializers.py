@@ -9,7 +9,7 @@ class RecipeSerializer(serializers.ModelSerializer):
             'title',
             'author',
             'created',
-            'image',
+            'my_image',
             'ingredients',
             'instructions',
             'source',
