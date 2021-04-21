@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<header class="bgimg w3-display-container w3-grascale-min" id="home">
+  <div class="w3-display-bottomleft w3-padding">
+    <span class="w3-tag w3-xlarge" id="code-guild">PDX Code Guild Capstone</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-white w3-hide-small" id="page-title-large">Integer<br>Vitae<br>Tellus</span>
+    <span class="w3-text-white w3-hide-medium w3-hide-large" id="page-title-small">Integer<br>Vitae<br>Tellus</span>
+    <p><a href="{% url 'recipes:new' %}" class="w3-button w3-xxlarge w3-black">Add YOUR own recipe!</a></p>
+  </div>
+</header>
+<!-- Recipe of the Day Container -->
+<div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Recipe of the Day</h1>
+    <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-row w3-center w3-border w3-border-dark-grey">
+      <p>{{ recipe.title }}</p>
+      <p>{{ recipe.image }}</p>
+      <p><a :href="recipe.url">{{ recipe.link }}</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- About Container -->
+<div class="w3-container w3-padding-64 w3-red w3-grayscale w3-xlarge">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px" id="about">About</h1>
+    <p>I love to cook and bake, but I've found that I have several cookbooks with only one or two recipes I care about. That is where the idea for Integer Vitae Tellus comes from. The title itself is nothing special, it just means cookbook in latin. The website itself however is beyond special. It allows you to post your favorite recipes so you can easily refer back to them rather than digging through piles of physical cookbooks. Soon, you will be able to create group cookbooks where you and your friends can easily share your recipes.</p>
+    <p><strong>The Chef?</strong> Mike Price<img src="https://static-cdn.jtvnw.net/jtv_user_pictures/3b113847-2b70-443a-8810-174028293c14-profile_image-300x300.png" style="width:150px" class="w3-circle w3-right" alt="Chef"></p>
+    <p>Let's build this together.</p>
+    <h1><b>Class Hours</b></h1>
+    
+    <div class="w3-row">
+      <div class="w3-col s6">
+        <p>Monday 9:30 - 4:30</p>
+        <p>Tuesday 9:30 - 4:30</p>
+        <p>Wednesday 9:30 - 4:30</p>
+      </div>
+      <div class="w3-col s6">
+        <p>Thursday 9:30 - 4:30</p>
+        <p>Friday 9:30 - 4:30</p>
+        <p>Sat & Sun CLOSED</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<img src="https://ca-times.brightspotcdn.com/dims4/default/e1f4856/2147483647/strip/true/crop/1600x900+0+0/resize/840x473!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F7b%2F61%2Ff2f9f5017bdf8f2179db7273ee1c%2Fla-dflorez-1478123652-snap-photo" class="w3-image w3-greyscale" style="width:100%;">
+
+<!-- Contact -->
+<div class="w3-container w3-padding-64 w3-blue-grey w3-grayscale-min w3-xlarge">
+  <div class="w3-content">
+    <h1 class="w3-center w3-jumbo" style="margin-bottom:64px" id="contact">Contact</h1>
+    <p>Find me in the Full-Stack Bootcamp at PDX Code Guild</p>
+    <p><span class="w3-tag">FYI!</span> They accept GI Bill at the in person rate.</p>
+    <p class="w3-xxlarge"><strong>Questions, Concerns, or Comments</strong></p>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Description" required name="Description"></p>
+      <p><button class="w3-button w3-light-grey w3-block" type="submit">SEND MESSAGE</button></p>
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

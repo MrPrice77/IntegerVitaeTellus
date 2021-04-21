@@ -4,7 +4,7 @@ from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.shortcuts import get_object_or_404
-from .models import Profile, MyModel
+from .models import Profile
 
 class SignUpView(CreateView):
     form_class = UserCreationForm
@@ -14,7 +14,7 @@ class SignUpView(CreateView):
 class UserProfileView(DetailView):
     model = User
     template_name = 'user_profile.html'
-    fields = ['memberSince', 'location']
+    fields = ['favoriteFood', 'favoriteRecipe']
     context_object_name = 'user_profile'
 
     def get_object(self):
@@ -28,7 +28,7 @@ class UserProfileView(DetailView):
 class UserEditProfile(UpdateView):
     model = Profile
     template_name = 'user_edit.html'
-    fields = ['memberSince', 'location']
+    fields = ['favoriteFood', 'favoriteRecipe']
 
     def get_object(self):
         try:
@@ -42,5 +42,5 @@ class UserEditProfile(UpdateView):
 
 def upload_image(request):
     my_image = request.FILES['my_image']
-    model = MyModel(..., my_image=my_image)
+    model = Profile(..., my_image=my_image)
     model.save()

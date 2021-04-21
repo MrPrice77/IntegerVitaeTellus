@@ -1,33 +1,38 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Integer Vitae Tellus</title>
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Libre+Franklin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     <link href="{% static 'integervitaetellus/style.css' %}" rel="stylesheet">
   </head>
   <body>
-    <header class="sidenav">
-      <div class="food">
-          <a href="{% url 'ivtapp:home' %}"><img src="{% static 'integervitaetellus/images/food.jpg' %}"></a><br/>
-      </div>
-      {% if user.is_authenticated %}
+    <div class="top">
+      <div class="bar">
         <div>
-          <a href="{% url 'ivtapp:home' %}"><img src="{% static 'integervitaetellus/images/home.png' %}"></a>
-          <a href="{% url 'users:profile' user.username %}"><img src="{% static 'integervitaetellus/images/profile.png' %}"></a>
-          <a href="{% url 'logout' %}"><img src="{% static 'integervitaetellus/images/logout.png' %}"></a>
-      {% else %}
-          <a href="{% url 'ivtapp:home' %}"><img src="{% static 'integervitaetellus/images/home.png' %}"></a>
-          <a href="{% url 'login' %}"><img src="{% static 'integervitaetellus/images/login.png' %}"></a>
-          <a href="{% url 'users:signup' %}"><img src="{% static 'integervitaetellus/images/register.png' %}"></a>
+          <a href="{% url 'recipes:home' %}" class="nav-button">HOME</a>
+          <a href="{% url 'recipes:list' %}" class="nav-button">RECIPES</a>
+          <a href="#about" class="nav-button">ABOUT</a>
+          <a href="#contact" class="nav-button">CONTACT</a><br>
         </div>
-      {% endif %}
-    </header>
-    <div class="container">
+        <div class="loginBar">
+          {% if user.is_authenticated %}
+              <p>Welcome {{ user.username }}!</a> <a href="{% url 'logout' %}" class="nav-button">Logout</a><a href="{% url 'users:profile' user.username %}" class="nav-button">Profile</a> </p>
+          {% else %}
+              <p>Welcome, visitor! You are not logged in. <a href="{% url 'login' %}" class="nav-button">Login</a> <a href="{% url 'users:signup' %}" class="nav-button">Sign Up</a></p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
       {% block content %}
       {% endblock content %}
-    </div>
+
+<!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
+      <p>© 2021 Andazant</p>
+    </footer>
   </body>
 </html>

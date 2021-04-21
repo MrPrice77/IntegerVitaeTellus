@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="profile">
+    <img src="{{ user_profile.profile.my_image }}">
+    <h1>{{ user_profile.username }}</h1>
+    <h5><em>Member Since {{ user_profile.date_joined }}!</em></h5>
+    <div class="profile_info">
+        <h3>Favorite Food</h3>
+        <p>{{ user_profile.profile.favoriteFood|linebreaksbr }}</p><br/>
+        <h3>Favorite Recipe</h3>
+        <p>{{ user_profile.profile.favoriteRecipe|linebreaksbr }}</p><br/>
+    </div>
+
+    {%for recipe in user_profile.recipe_set.all %}
+        <div class="recipe-entry">
+            <h4><em>{{ recipe.author.username }}</em> - {{ recipe.created }}</h4>
+            <p>{{ recipe.body|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+    {% if user_profile == user %}
+        <form action="{% url 'users:edit' user.username %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Edit">
+        </form>
+</div>
+    {% endif %}
+
+
+{% endblock content %}
