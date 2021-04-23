@@ -1,3 +1,12 @@
+html {
+    display: block;
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
 body, html {
     display: block;
     height: 100%;
@@ -14,7 +23,7 @@ body, h1, h2, h3, h4, h5, h6 {
     position: fixed;
     width: 100%;
     z-index: 1;
-    top:0
+    top:0;
 }
 
 .bar {
@@ -92,4 +101,29 @@ a:hover {
     font-size: 60px;
     font-weight: bold;
     text-shadow: 4px 4px black;
+}
+
+.menu img {
+    border-radius: 25px;
+    max-width: 50%;
+    height: auto;
+}
+
+.recipe-list img {
+    text-align: left;
+    max-width: 100%;
+    opacity: 0.5;
+    height: 128px;
+}
+
+.recipe-list {
+    position: relative;
+    text-align: center;
+}
+
+.recipe-list p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
 }

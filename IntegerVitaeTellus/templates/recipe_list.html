@@ -2,12 +2,13 @@
 
 {% block content %}
 
-<div class="recipes">
-{% for recipe in object_list %}
-    <hr>
-    <div class="recipe-entry">
-        <h4><a href="{% url 'recipes:detail' recipe.id %}"> {{ recipe.title }}</a></h4>
-        <p>{{ recipe.author.username|linebreaksbr }}
+    <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
+        <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-content">
+            <div class="w3-row w3-center w3-border w3-border-dark-grey recipe-list">
+                <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
+                <p>[[ recipe.title ]]</p>
+            </div>
+        </div>
     </div>
-{% endfor %}
+
 {% endblock content %}

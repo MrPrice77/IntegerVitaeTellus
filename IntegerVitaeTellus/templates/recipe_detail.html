@@ -13,6 +13,20 @@
         <p>{{ recipe.my_image|linebreaksbr }}</p>
     </div>
 
+<!--
+    <div class="w3-container w3-black w3-padding-64 w3-xxlarge menu" id="menu">
+        <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-content">
+            <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">[[ recipe.title ]]</h1>
+            <div class="w3-row w3-center w3-border w3-border-dark-grey">
+                <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
+                <p>[[ recipe.ingredients ]]</p>
+                <p>[[ recipe.instructions ]]</p>
+                <p>[[ recipe.source ]]</p>
+            </div>
+        </div>
+    </div>
+-->
+
     {% if user.is_authenticated %}
         <form action="{% url 'recipes:edit' recipe.pk %}">
             {% csrf_token %}
