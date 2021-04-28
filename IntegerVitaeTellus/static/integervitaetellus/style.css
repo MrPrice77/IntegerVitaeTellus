@@ -74,7 +74,7 @@ a:hover {
 
 
 .loginBar {
-    text-align: left;
+    text-align: right;
     font-weight: bold;
     margin-left: 20px;
 }
@@ -104,6 +104,12 @@ a:hover {
 }
 
 .menu img {
+    border-radius: 25px;
+    max-width: 50%;
+    height: auto;
+}
+
+.profile img {
     border-radius: 25px;
     max-width: 50%;
     height: auto;

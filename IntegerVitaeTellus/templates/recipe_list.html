@@ -6,7 +6,7 @@
         <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-content">
             <div class="w3-row w3-center w3-border w3-border-dark-grey recipe-list">
                 <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
-                <p>[[ recipe.title ]]</p>
+                <p><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a></p>
             </div>
         </div>
     </div>

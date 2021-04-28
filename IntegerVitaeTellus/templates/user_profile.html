@@ -1,32 +1,35 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="profile">
+<div class="profile w3-container w3-black w3-padding-64 w3-large">
     <img src="{{ user_profile.profile.my_image }}">
-    <h1>{{ user_profile.username }}</h1>
-    <h5><em>Member Since {{ user_profile.date_joined }}!</em></h5>
+    <h1>Username: </h1>
+        <p>{{ user_profile.username }}</p>
+    <h5>Member Since: </h5>
+        <p>{{ user_profile.date_joined }}</p>
     <div class="profile_info">
-        <h3>Favorite Food</h3>
-        <p>{{ user_profile.profile.favoriteFood|linebreaksbr }}</p><br/>
-        <h3>Favorite Recipe</h3>
-        <p>{{ user_profile.profile.favoriteRecipe|linebreaksbr }}</p><br/>
+        <h3>Favorite Food: </h3>
+        <p>{{ user_profile.profile.favoriteFood|linebreaksbr }}</p>
+        <h3>Favorite Recipe: </h3>
+        <p>{{ user_profile.profile.favoriteRecipe|linebreaksbr }}</p>
     </div>
 
-    {%for recipe in user_profile.recipe_set.all %}
-        <div class="recipe-entry">
-            <h4><em>{{ recipe.author.username }}</em> - {{ recipe.created }}</h4>
-            <p>{{ recipe.body|linebreaksbr }}</p>
+    <div class="w3-container w3-black w3-padding-64 w3-large menu" id="menu">
+        <div class="w3-content">
+            <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-row w3-left w3-border w3-border-dark-grey">
+                <p v-if="recipe.author"><img v-if="recipe.my_image" :src="[[ recipe.my_image ]]"><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a> - [[recipe.created]]</p>
+            </div>
         </div>
-    {% endfor %}
-
-    {% if user_profile == user %}
-        <form action="{% url 'users:edit' user.username %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Edit">
-        </form>
+    </div>
 </div>
-    {% endif %}
+
+{% if user_profile == user %}
+    <form action="{% url 'users:edit' user.username %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Edit">
+    </form>
+{% endif %}
 
 
 {% endblock content %}
