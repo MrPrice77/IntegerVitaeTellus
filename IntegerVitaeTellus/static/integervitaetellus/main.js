@@ -1,3 +1,25 @@
+Vue.component('get-recipes',{
+    data: function() {
+        return {
+            recipes: "",
+        }
+    },
+    template: `
+        <div>
+        <input type="text" placeholder="Search" @keyup.enter="getRecipes" v-model="recipes">
+        <button @click="getRecipes" class="search-btn>Search</button>
+        </div>
+        `,
+    methods: {
+        getRecipes: function() {
+            console.log()
+            this.$emit('result', {recipes: this.recipes})
+            this.recipes = ""
+        }
+    }
+})
+
+
 const vm = new Vue ({
     el: '#menu',
     data: {

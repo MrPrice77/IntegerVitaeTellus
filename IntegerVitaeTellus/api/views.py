@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, filters
 
 from recipes import models
 from .serializers import RecipeSerializer
@@ -10,3 +10,10 @@ class RecipeList(generics.ListCreateAPIView):
 class RecipeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = models.Recipe.objects.all()
     serializer_class = RecipeSerializer
+
+class RecipeListView(generics.ListAPIView):
+    queryset = models.Recipe.objects.all()
+    serializer_class = RecipeSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title', 'author', 'ingredients', 'instructions']
+

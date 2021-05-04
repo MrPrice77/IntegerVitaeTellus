@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!-- Home Image/Title -->
 <header class="bgimg w3-display-container w3-grascale-min" id="home">
   <div class="w3-display-bottomleft w3-padding">
     <span class="w3-tag w3-xlarge" id="code-guild">PDX Code Guild Capstone</span>
@@ -12,6 +13,12 @@
     <p><a href="{% url 'recipes:new' %}" class="w3-button w3-xxlarge w3-black">Add YOUR own recipe!</a></p>
   </div>
 </header>
+
+<!-- Search Bar -->
+  <div class="searchbar">
+    <get-recipes @result="getRecipes"></get-recipes>
+  </div>
+
 <!-- Recipe of the Day Container -->
 <div class="w3-container w3-black w3-padding-64 w3-xxlarge menu" id="menu">
   <div class="w3-content">

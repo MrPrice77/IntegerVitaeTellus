@@ -2,11 +2,10 @@
 
 {% block content %}
 
-    <div class="w3-container w3-black w3-padding-64 w3-xxlarge" id="menu">
-        <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-content">
-            <div class="w3-row w3-center w3-border w3-border-dark-grey recipe-list">
-                <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
-                <p><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a></p>
+    <div class="menu w3-container w3-black w3-padding-64 w3-large" id="menu">
+        <div class="w3-content">
+            <div v-for="recipe in recipes" :key="recipe.id" class="w3-row w3-left w3-border w3-border-dark-grey">
+                <p><img v-if="recipe.my_image" :src="[[ recipe.my_image ]]"><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a> - [[recipe.created]]</p>
             </div>
         </div>
     </div>

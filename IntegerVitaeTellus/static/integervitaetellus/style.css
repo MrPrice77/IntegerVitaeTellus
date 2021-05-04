@@ -103,6 +103,13 @@ a:hover {
     text-shadow: 4px 4px black;
 }
 
+.recipe-list img {
+    display: block;
+    border-radius: 25px;
+    max-width: 50%;
+    height: auto;   
+}
+
 .menu img {
     border-radius: 25px;
     max-width: 50%;
@@ -115,21 +122,9 @@ a:hover {
     height: auto;
 }
 
-.recipe-list img {
-    text-align: left;
-    max-width: 100%;
-    opacity: 0.5;
-    height: 128px;
+.recipe img {
+    border-radius: 25px;
+    max-width: 50%;
+    height: auto;
 }
 
-.recipe-list {
-    position: relative;
-    text-align: center;
-}
-
-.recipe-list p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%)
-}

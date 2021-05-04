@@ -2,7 +2,8 @@
 
 {% block content %}
 
-    <div class="recipe-entry">
+<!--
+    <div class="recipe-entry w3-container w3-black w3-padding-64 w3-large">
         <h4><em><a href="{% url 'users:profile' recipe.author.username %}">{{ recipe.author.username }}</a></em></h4>
         <h4><em>Posted on {{ recipe.created }}</em></h4>
         <h4><em>Last updated on {{ recipe.updated }}</em></h4>
@@ -12,20 +13,20 @@
         <p>{{ recipe.source|linebreaksbr }}</p>
         <p>{{ recipe.my_image|linebreaksbr }}</p>
     </div>
+-->
 
-<!--
     <div class="w3-container w3-black w3-padding-64 w3-xxlarge menu" id="menu">
         <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-content">
             <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">[[ recipe.title ]]</h1>
             <div class="w3-row w3-center w3-border w3-border-dark-grey">
                 <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
-                <p>[[ recipe.ingredients ]]</p>
-                <p>[[ recipe.instructions ]]</p>
-                <p>[[ recipe.source ]]</p>
+                <p>Ingredients: [[ recipe.ingredients ]]</p>
+                <p>Instructions: [[ recipe.instructions ]]</p>
+                <p>Source: [[ recipe.source ]]</p>
             </div>
         </div>
     </div>
--->
+
 
     {% if user.is_authenticated %}
         <form action="{% url 'recipes:edit' recipe.pk %}">

@@ -17,7 +17,7 @@
     <div class="w3-container w3-black w3-padding-64 w3-large menu" id="menu">
         <div class="w3-content">
             <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-row w3-left w3-border w3-border-dark-grey">
-                <p v-if="recipe.author"><img v-if="recipe.my_image" :src="[[ recipe.my_image ]]"><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a> - [[recipe.created]]</p>
+                <p v-if="recipe.author == user_profile"><img v-if="recipe.my_image" :src="[[ recipe.my_image ]]"><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a> - [[recipe.created]]</p>
             </div>
         </div>
     </div>
