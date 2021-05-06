@@ -14,6 +14,17 @@
         <p>{{ user_profile.profile.favoriteRecipe|linebreaksbr }}</p>
     </div>
 
+    <div class="recipe-entry w3-container w3-black w3-padding-64 w3-large">
+        <img src="{{ recipe.my_image.url|linebreaksbr }}">
+        <h1>{{ recipe.title|linebreaksbr }}</h1>
+        <h4><em>Posted on {{ recipe.created }}</em></h4>
+        <h4><em><a href="{% url 'users:profile' recipe.author.username %}">{{ recipe.author.username }}</a></em></h4>
+        <p>Ingredients: {{ recipe.ingredients|linebreaksbr }}</p>
+        <p>Instructions: {{ recipe.instructions|linebreaksbr }}</p>
+        <p>Source: {{ recipe.source|linebreaksbr }}</p>
+    </div>
+
+<!--
     <div class="w3-container w3-black w3-padding-64 w3-large menu" id="menu">
         <div class="w3-content">
             <div v-for="recipe in recipesList" v-bind:key="recipe.id" class="w3-row w3-left w3-border w3-border-dark-grey">
@@ -22,7 +33,7 @@
         </div>
     </div>
 </div>
-
+-->
 {% if user_profile == user %}
     <form action="{% url 'users:edit' user.username %}">
         {% csrf_token %}

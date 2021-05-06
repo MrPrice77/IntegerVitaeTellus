@@ -2,22 +2,25 @@
 
 {% block content %}
 
-<!--
-    <div class="recipe-entry w3-container w3-black w3-padding-64 w3-large">
-        <h4><em><a href="{% url 'users:profile' recipe.author.username %}">{{ recipe.author.username }}</a></em></h4>
-        <h4><em>Posted on {{ recipe.created }}</em></h4>
-        <h4><em>Last updated on {{ recipe.updated }}</em></h4>
-        <p>{{ recipe.title|linebreaksbr }}</p>
-        <p>{{ recipe.ingredients|linebreaksbr }}</p>
-        <p>{{ recipe.instructions|linebreaksbr }}</p>
-        <p>{{ recipe.source|linebreaksbr }}</p>
-        <p>{{ recipe.my_image|linebreaksbr }}</p>
-    </div>
--->
 
+    <div class="recipe-entry w3-container w3-black w3-padding-64 w3-large">
+        <img src="{{ recipe.my_image.url|linebreaksbr }}">
+        <h1>{{ recipe.title|linebreaksbr }}</h1>
+        <h4><em>Posted on {{ recipe.created }}</em></h4>
+        <h4><em><a href="{% url 'users:profile' recipe.author.username %}">{{ recipe.author.username }}</a></em></h4>
+        <p>Ingredients: {{ recipe.ingredients|linebreaksbr }}</p>
+        <p>Instructions: {{ recipe.instructions|linebreaksbr }}</p>
+        <p>Source: {{ recipe.source|linebreaksbr }}</p>
+    </div>
+
+<!--
     <div class="w3-container w3-black w3-padding-64 w3-xxlarge menu" id="menu">
-        <div v-for="recipe in recipesList" v-bind:key="recipe.id" class="w3-content">
-            <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">[[ recipe.title ]]</h1>
+        <div v-for="recipe in recipesList" :key="recipe.id" class="w3-content">
+            <h1 class="w3-center w3-jumbo">[[ recipe.title ]]</h1>
+            <div class="w3-center w3-large">
+                <p><a :href="'/user/' + recipe.author_detail.username">[[ recipe.author_detail.username ]]</a></p>
+                <p>[[ recipe.created ]]</p>
+            </div>
             <div class="w3-row w3-center w3-border w3-border-dark-grey">
                 <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
                 <p>Ingredients: [[ recipe.ingredients ]]</p>
@@ -26,7 +29,7 @@
             </div>
         </div>
     </div>
-
+-->
 
     {% if user.is_authenticated %}
         <form action="{% url 'recipes:edit' recipe.pk %}">
