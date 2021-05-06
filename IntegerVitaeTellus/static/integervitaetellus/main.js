@@ -33,6 +33,8 @@ const vm = new Vue ({
         title: "",
         image: "",
         recipes: [],
+        recipesList: [],
+        recipesRandom: [],
     },
     delimiters: ["[[","]]"],
     methods: {
@@ -42,13 +44,14 @@ const vm = new Vue ({
                 url: '/api/v1/',
             }).then(response => {
                 // this.recipes = response.data
-                this.recipes = [response.data[Math.floor(Math.random()*response.data.length)]]
-
+                this.recipesRandom = [response.data[Math.floor(Math.random()*response.data.length)]]
+                this.recipesList = response.data
             })
         },
-        saverecipes: function(results) {
+        saveRecipes: function(results) {
             this.recipes=results
-        }
+        },
+
     },
     mounted: function() {
         this.getRecipes()

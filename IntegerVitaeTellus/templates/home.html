@@ -17,13 +17,19 @@
 <!-- Recipe of the Day Container -->
 <div class="w3-container w3-black w3-padding-64 w3-xxlarge menu" id="menu">
     <!-- Search Bar -->
-  <div class="searchbar">
-    <get-recipes @result="saverecipes"></get-recipes>
-  </div>
+  <div class="searchbar w3-center">
+    <get-recipes @result="saveRecipes"></get-recipes>
+  </div><br>
+  <div class="w3-content">
+    <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-row w3-center w3-border w3-border-dark-grey">
+      <p><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a></p>
+      <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
+    </div>
+  </div><br>
+    <!-- Recipe of the Day -->  
   <div class="w3-content">
     <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">Recipe of the Day</h1>
-
-    <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-row w3-center w3-border w3-border-dark-grey">
+    <div v-for="recipe in recipesRandom" v-bind:key="recipe.id" class="w3-row w3-center w3-border w3-border-dark-grey">
       <p><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a></p>
       <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
     </div>

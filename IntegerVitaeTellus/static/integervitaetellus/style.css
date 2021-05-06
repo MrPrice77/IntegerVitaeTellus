@@ -103,9 +103,8 @@ a:hover {
     text-shadow: 4px 4px black;
 }
 
-.searchbar {
-    display: block;
-    align-self: center;
+.searchbar input{
+    width: 50%;
 }
 
 .recipe-list img {
