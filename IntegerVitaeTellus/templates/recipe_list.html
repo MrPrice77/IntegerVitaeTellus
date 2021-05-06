@@ -4,8 +4,8 @@
 
     <div class="menu w3-container w3-black w3-padding-64 w3-large" id="menu">
         <div class="w3-content">
-            <div v-for="recipe in recipesList" :key="recipe.id" class="w3-row w3-left w3-border w3-border-dark-grey">
-                <p><img v-if="recipe.my_image" :src="[[ recipe.my_image ]]"><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a> - [[recipe.created]]</p>
+            <div v-for="recipe in recipesList" :key="recipe.id" class="w3-row w3-left w3-border w3-border-dark-grey recipe-list">
+                <p><img v-if="recipe.my_image" :src="[[ recipe.my_image ]]"><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a> - <a :href="'/user/' + recipe.author_detail.username">[[ recipe.author_detail.username ]]</a> - [[recipe.created]]</p>
             </div>
         </div>
     </div>

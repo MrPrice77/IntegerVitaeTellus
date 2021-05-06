@@ -16,7 +16,7 @@
 -->
 
     <div class="w3-container w3-black w3-padding-64 w3-xxlarge menu" id="menu">
-        <div v-for="recipe in recipes" v-bind:key="recipe.id" class="w3-content">
+        <div v-for="recipe in recipesList" v-bind:key="recipe.id" class="w3-content">
             <h1 class="w3-center w3-jumbo" style="margin-bottom:64px">[[ recipe.title ]]</h1>
             <div class="w3-row w3-center w3-border w3-border-dark-grey">
                 <img v-if="recipe.my_image" :src="[[ recipe.my_image ]]">
