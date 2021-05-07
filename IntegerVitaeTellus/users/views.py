@@ -14,7 +14,7 @@ class SignUpView(CreateView):
 class UserProfileView(DetailView):
     model = User
     template_name = 'user_profile.html'
-    fields = ['favoriteFood', 'favoriteRecipe']
+    fields = ['my_image', 'favoriteFood', 'favoriteRecipe']
     context_object_name = 'user_profile'
 
     def get_object(self):
@@ -28,7 +28,7 @@ class UserProfileView(DetailView):
 class UserEditProfile(UpdateView):
     model = Profile
     template_name = 'user_edit.html'
-    fields = ['favoriteFood', 'favoriteRecipe']
+    fields = ['my_image', 'favoriteFood', 'favoriteRecipe']
 
     def get_object(self):
         try:

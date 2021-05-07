@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="profile w3-container w3-black w3-padding-64 w3-large">
-    <img src="{{ user_profile.profile.my_image }}">
+<div class="w3-container w3-black w3-padding-64 w3-large profile">
+    <img src="{{ user_profile.profile.my_image.url }}">
     <h1>Username: </h1>
         <p>{{ user_profile.username }}</p>
     <h5>Member Since: </h5>
@@ -14,26 +14,23 @@
         <p>{{ user_profile.profile.favoriteRecipe|linebreaksbr }}</p>
     </div>
 
+{% comment %} {% if user_profile == recipe.author_detail.username %}
     <div class="recipe-entry w3-container w3-black w3-padding-64 w3-large">
         <img src="{{ recipe.my_image.url|linebreaksbr }}">
         <h1>{{ recipe.title|linebreaksbr }}</h1>
         <h4><em>Posted on {{ recipe.created }}</em></h4>
-        <h4><em><a href="{% url 'users:profile' recipe.author.username %}">{{ recipe.author.username }}</a></em></h4>
+        <h4><em><a href="{% url 'users:profile' recipe.author.id %}">{{ recipe.author.id }}</a></em></h4>
         <p>Ingredients: {{ recipe.ingredients|linebreaksbr }}</p>
         <p>Instructions: {{ recipe.instructions|linebreaksbr }}</p>
         <p>Source: {{ recipe.source|linebreaksbr }}</p>
     </div>
+{% endif %} {% endcomment %}
 
-<!--
-    <div class="w3-container w3-black w3-padding-64 w3-large menu" id="menu">
-        <div class="w3-content">
-            <div v-for="recipe in recipesList" v-bind:key="recipe.id" class="w3-row w3-left w3-border w3-border-dark-grey">
-                <p v-if="recipe.author_detail.username"><img v-if="recipe.my_image" :src="[[ recipe.my_image ]]"><a :href="'/recipe/' + recipe.id">[[ recipe.title ]]</a> - <a :href="'/user/' + recipe.author_detail.username">[[ recipe.author_detail.username ]]</a> - [[recipe.created]]</p>
-            </div>
-        </div>
-    </div>
-</div>
--->
+
+
+</div> 
+
+
 {% if user_profile == user %}
     <form action="{% url 'users:edit' user.username %}">
         {% csrf_token %}

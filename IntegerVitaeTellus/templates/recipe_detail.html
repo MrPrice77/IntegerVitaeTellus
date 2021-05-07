@@ -2,15 +2,18 @@
 
 {% block content %}
 
-
-    <div class="recipe-entry w3-container w3-black w3-padding-64 w3-large">
+  <div class="w3-content" id="recipe-entry">
+    <h1 class="w3-center w3-jumbo">{{ recipe.title|linebreaksbr }}</h1>
+    <div class=" w3-container w3-center w3-black w3-padding-64 w3-xlarge" id="recipe-detail">
         <img src="{{ recipe.my_image.url|linebreaksbr }}">
-        <h1>{{ recipe.title|linebreaksbr }}</h1>
         <h4><em>Posted on {{ recipe.created }}</em></h4>
         <h4><em><a href="{% url 'users:profile' recipe.author.username %}">{{ recipe.author.username }}</a></em></h4>
-        <p>Ingredients: {{ recipe.ingredients|linebreaksbr }}</p>
-        <p>Instructions: {{ recipe.instructions|linebreaksbr }}</p>
-        <p>Source: {{ recipe.source|linebreaksbr }}</p>
+        <h2>Ingredients:</h2>
+        </p>{{ recipe.ingredients|linebreaksbr }}</p><br>
+        <h2>Instructions:</h2>
+        </p>{{ recipe.instructions|linebreaksbr }}</p><br>
+        <h2>Source:</h2>
+        </p>{{ recipe.source|linebreaksbr }}</p>
     </div>
 
 <!--

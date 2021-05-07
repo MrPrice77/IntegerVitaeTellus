@@ -1,15 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<head>
+    <style>
+    footer {
+        bottom: 0;
+        position: fixed;
+        width: 100%;
+    }
+    </style>
+</head>
     <h1>Delete Recipe</h1>
 
-    <form action="" method="post">
+    <form action="" method="post" class="recipe-entry w3-container w3-black w3-padding-64 w3-large">
         {% csrf_token %}
         <p>Are you sure you want to delete the recipe?</p>
         <input type="submit" value="Confirm">
     </form>
-    <form action="{% url 'recipes:home' %}">
+    <form action="{% url 'recipes:home' %}" class="w3-container w3-black w3-large">
         {% csrf_token %}
         <input type="submit" value="Cancel">
     </form>

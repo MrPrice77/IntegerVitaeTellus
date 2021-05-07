@@ -6,7 +6,7 @@ class Profile(models.Model):
     memberSince = models.DateTimeField(auto_now_add=True)
     favoriteFood = models.CharField(max_length=100, null=True, blank=True)
     favoriteRecipe = models.CharField(max_length=100, null=True, blank=True)
-    my_image = models.ImageField(upload_to='images/', null=True, blank=True)
+    my_image = models.ImageField(upload_to='images/', default='images/no_image.png', null=True, blank=True)
 
 
     def __str__(self):

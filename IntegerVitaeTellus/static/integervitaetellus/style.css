@@ -19,6 +19,11 @@ body, h1, h2, h3, h4, h5, h6 {
     color: black;
 }
 
+body {
+    min-height: 100vh;
+    background-color: black;
+}
+
 .top {
     position: fixed;
     width: 100%;
@@ -35,7 +40,6 @@ body, h1, h2, h3, h4, h5, h6 {
     box-sizing: inherit;
     display: block;
     width: auto;
-    opacity: 80%;
 }
 
 a:hover {
@@ -107,10 +111,12 @@ a:hover {
     width: 50%;
 }
 
-.recipe-list img {
-    border-radius: 25px;
-    max-width: 50%;
-    height: auto;   
+#recipe-list img {
+    border-radius: 15px;
+    max-width: 25%;
+    height: auto;
+    float: left;
+    padding: 5px;
 }
 
 .menu img {
@@ -119,9 +125,25 @@ a:hover {
     height: auto;
 }
 
+.profile {
+    padding: 5px;
+}
+
+.profile p {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.profile h1, h3, h5{
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px;
+}
+
 .profile img {
     border-radius: 25px;
-    max-width: 50%;
+    width: 20%;
     height: auto;
 }
 
@@ -131,3 +153,36 @@ a:hover {
     height: auto;
 }
 
+#home {
+    margin-top: 52px;
+}
+
+#search img {
+    border-radius: 15px;
+    max-width: 25%;
+    height: auto;
+    float: left;
+    padding: 5px;
+}
+
+#rotd img {
+    padding : 15px;
+}
+
+#recipe-detail h4 {
+    font-size: 20px;
+}
+
+#recipe-detail h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#recipe-detail img {
+    width: 50%;
+    height: auto;
+}
+
+#recipe-entry {
+    margin-top: 50px;
+}
