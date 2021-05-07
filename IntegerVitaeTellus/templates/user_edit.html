@@ -12,7 +12,7 @@
         {{ form.as_p }}
         <input type="submit" value="Update">
     </form>
-    <form action="{% url 'recipes:home' %}">
+    <form action="{% url 'users:profile' user.username %}">
         {% csrf_token %}
         <input type="submit" value="Cancel">
     </form>
